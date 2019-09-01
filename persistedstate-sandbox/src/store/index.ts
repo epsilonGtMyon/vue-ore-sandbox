@@ -2,9 +2,14 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import createPersistedState from 'vuex-persistedstate';
 
+import moduleA from "./moduleA"
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  modules: {
+    moduleA
+  },
   state: {
     value01: 0,
     value02: '',
@@ -40,7 +45,8 @@ export default new Vuex.Store({
   plugins: [
     createPersistedState({
       key: 'hello-key',
-      paths: ['value01', 'value02', 'value03', "nest"]
+      paths: ['value01', 'value02', 'value03', "nest"
+              , "moduleA.value01", "moduleA.value02"]
     })
   ]
 });
