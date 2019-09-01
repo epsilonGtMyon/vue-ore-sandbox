@@ -21,6 +21,12 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ './pages/about/About.vue')
+    },
+    {
+      path: '/sandbox01',
+      name: 'sandbox01',
+      component: () =>
+        import(/* webpackChunkName: "sandbox01" */ './pages/sandbox01/Sandbox01.vue')
     }
   ]
 });
