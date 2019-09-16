@@ -14,6 +14,11 @@
             <a-icon type="pie-chart" />
             <nuxt-link to="/sandbox02" tag="span">sandbox02</nuxt-link>
           </a-menu-item>
+
+          <a-menu-item key="3">
+            <a-icon type="pie-chart" />
+            <nuxt-link to="/sandbox03" tag="span">sandbox03</nuxt-link>
+          </a-menu-item>
         </a-menu>
       </a-layout-sider>
       <a-layout-content>
