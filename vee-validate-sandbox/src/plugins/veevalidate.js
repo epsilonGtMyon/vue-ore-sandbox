@@ -48,7 +48,7 @@ extend('hey2', {
   validate(value) {
     return value !== 'Hey2';
   },
-  message(field, values) {
+  message() {//field, values
     //関数でもできる。
     //fieldはname属性
     //valuesは値(_value_),ルール名(_rule_)などが入ってる
