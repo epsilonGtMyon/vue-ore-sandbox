@@ -28,6 +28,14 @@ export default new Router({
         import(
           /* webpackChunkName: "sandbox02" */ './pages/sandbox02/Sandbox02.vue'
         )
+    },
+    {
+      path: '/sandbox03',
+      name: 'sandbox03',
+      component: () =>
+        import(
+          /* webpackChunkName: "sandbox03" */ './pages/sandbox03/Sandbox03.vue'
+        )
     }
   ]
 });

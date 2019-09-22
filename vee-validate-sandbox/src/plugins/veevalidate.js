@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { ValidationProvider, extend } from 'vee-validate';
+import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
 
 // Add a rule.
 extend('secret', {
@@ -48,7 +48,8 @@ extend('hey2', {
   validate(value) {
     return value !== 'Hey2';
   },
-  message() {//field, values
+  message() {
+    //field, values
     //関数でもできる。
     //fieldはname属性
     //valuesは値(_value_),ルール名(_rule_)などが入ってる
@@ -59,3 +60,4 @@ extend('hey2', {
 
 // Register it globally
 Vue.component('ValidationProvider', ValidationProvider);
+Vue.component('ValidationObserver', ValidationObserver);
