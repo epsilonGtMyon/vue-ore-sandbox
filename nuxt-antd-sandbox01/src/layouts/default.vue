@@ -5,20 +5,12 @@
       <a-layout-sider theme="light" breakpoint="sm" collapsible>
         <a-menu theme="light" mode="inline">
           <!-- menu-itemを押したときに遷移するようにした方がいい -->
-          <a-menu-item key="1">
-            <a-icon type="pie-chart" />
-            <nuxt-link to="/sandbox01" tag="span">sandbox01</nuxt-link>
-          </a-menu-item>
-
-          <a-menu-item key="2">
-            <a-icon type="pie-chart" />
-            <nuxt-link to="/sandbox02" tag="span">sandbox02</nuxt-link>
-          </a-menu-item>
-
-          <a-menu-item key="3">
-            <a-icon type="pie-chart" />
-            <nuxt-link to="/sandbox03" tag="span">sandbox03</nuxt-link>
-          </a-menu-item>
+          <template v-for="menuItem in menuItems">
+            <a-menu-item :key="menuItem.key">
+              <a-icon :type="menuItem.type" />
+              <nuxt-link :to="menuItem.to" tag="span">{{menuItem.text}}</nuxt-link>
+            </a-menu-item>
+          </template>
         </a-menu>
       </a-layout-sider>
       <a-layout-content>
@@ -29,6 +21,21 @@
   </a-layout>
 </template>
 
+<script>
+export default {
+  data: () => ({
+    menuItems: [],
+  }),
+  mounted() {
+    this.menuItems = [
+      { key: 1, type: 'pie-chart', to: '/sandbox01', text: 'sandbox01' },
+      { key: 2, type: 'pie-chart', to: '/sandbox02', text: 'sandbox02' },
+      { key: 3, type: 'pie-chart', to: '/sandbox03', text: 'sandbox03' },
+      { key: 4, type: 'pie-chart', to: '/sandbox04', text: 'sandbox04' },
+    ];
+  },
+};
+</script>
 
 <style lang="sass" scoped>
 .ant-layout

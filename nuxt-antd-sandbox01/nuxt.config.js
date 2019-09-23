@@ -30,7 +30,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    `@/plugins/antd`
+    `@/plugins/antd`,
+    `@/plugins/vee-validate`
   ],
   /*
   ** Nuxt.js dev-modules
