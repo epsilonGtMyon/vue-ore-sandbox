@@ -1,6 +1,6 @@
 <template>
   <div>
-    Vue.observableをそのまま使う
+    <h1 class="title">Vue.observableをそのまま使う</h1>
     <div class="is-flex">
       <LeftView />
       <div style="width:1rem" />
