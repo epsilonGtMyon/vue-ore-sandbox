@@ -1,29 +1,6 @@
 # observable-study
 
-## Project setup
-```
-yarn install
-```
+Vue.observableで遊ぶ
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+単一ページでのコンポーネント間の状態共有はVuexを使うほどの物でもないかな〜と思ったので
+Vue.observableを試してみる
