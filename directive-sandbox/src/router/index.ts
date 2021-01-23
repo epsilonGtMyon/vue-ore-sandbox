@@ -18,6 +18,14 @@ const routes: Array<RouteConfig> = [
         /* webpackChunkName: "sandbox01" */ "../views/sandbox01/Sandbox01.vue"
       ),
   },
+  {
+    path: "/sandbox02",
+    name: "Sandbox02",
+    component: () =>
+      import(
+        /* webpackChunkName: "sandbox02" */ "../views/sandbox02/Sandbox02.vue"
+      ),
+  },
 ];
 
 const router = new VueRouter({
