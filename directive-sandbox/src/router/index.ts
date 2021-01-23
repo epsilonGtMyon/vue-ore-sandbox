@@ -26,6 +26,14 @@ const routes: Array<RouteConfig> = [
         /* webpackChunkName: "sandbox02" */ "../views/sandbox02/Sandbox02.vue"
       ),
   },
+  {
+    path: "/sandbox03",
+    name: "Sandbox03",
+    component: () =>
+      import(
+        /* webpackChunkName: "sandbox03" */ "../views/sandbox03/Sandbox03.vue"
+      ),
+  },
 ];
 
 const router = new VueRouter({
