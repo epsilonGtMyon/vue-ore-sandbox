@@ -7,18 +7,12 @@ const simpleOverlay: DirectiveOptions = {
 
     const onMouseEnter = () => {
       const div = document.createElement("div");
+      div.classList.add("simple-overlay");
+      
       if (elStyle.position === "static") {
         el.style.position = "relative";
       }
 
-      div.classList.add("simple-overlay");
-      //実際はcssでやるだろうが..
-      div.style.position = "absolute";
-      div.style.top = "0";
-      div.style.bottom = "0";
-      div.style.left = "0";
-      div.style.right = "0";
-      div.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
 
       el.appendChild(div);
     };

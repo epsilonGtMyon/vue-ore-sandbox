@@ -26,9 +26,20 @@ export default Vue.extend({
     border: 1px solid black;
 
     &.box1 {
-      width: 400px;
-      height: 400px;
+      width: 300px;
+      height: 300px;
+      background-color: yellow;
     }
   }
+}
+</style>
+
+<style lang="scss">
+.simple-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 </style>
