@@ -7,6 +7,8 @@
     <div class="hoge-area">
       <div v-hoge="doHoge">a</div>
       <sandbox-05-comp-a v-hoge="doHoge">bbb</sandbox-05-comp-a>
+
+      <hoge-component @hoge="doHoge"> ccc </hoge-component>
     </div>
   </div>
 </template>
@@ -15,6 +17,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { Hoge } from "./Hoge";
+import HogeComponent from "./HogeComponent.vue";
 import Sandbox05CompA from "./Sandbox05CompA.vue";
 
 export default Vue.extend({
@@ -23,6 +26,7 @@ export default Vue.extend({
     Hoge,
   },
   components: {
+    HogeComponent,
     Sandbox05CompA,
   },
   data() {
