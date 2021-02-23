@@ -1,6 +1,6 @@
 import { DirectiveOptions } from "vue";
 
-function asHTMLElement(ev: DragEvent) {
+function asDragHandleHTMLElement(ev: DragEvent) {
   if (ev == null || ev.target == null) {
     return null;
   }
@@ -8,20 +8,22 @@ function asHTMLElement(ev: DragEvent) {
   if (!(target instanceof HTMLElement)) {
     return null;
   }
-  return target;
+  //drag-handleの内部の要素になることがあるのでその対応
+  const dragHandle = target.closest(".drag-handle");
+  if (!(dragHandle instanceof HTMLElement)) {
+    return null;
+  }
+  return dragHandle;
 }
 const draggable: DirectiveOptions = {
   inserted(el, binding) {
     const dragStart = (ev: DragEvent) => {
-      const element = asHTMLElement(ev);
+      const element = asDragHandleHTMLElement(ev);
       if (ev == null || element === null) {
         ev.preventDefault();
         return;
       }
-      if (!element.classList.contains("drag-handle")) {
-        ev.preventDefault();
-        return;
-      }
+
       const draggable = element.closest(".draggable");
       if (draggable == null || !(draggable instanceof HTMLElement)) {
         ev.preventDefault();
