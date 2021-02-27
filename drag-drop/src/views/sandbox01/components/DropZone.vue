@@ -3,9 +3,10 @@
     class="drop-zone"
     @dragover.prevent
     @drop.capture="drop"
-    @dragenter.capture="dragenter"
-    @dragleave.capture="dragleave"
+    @dragenter="dragenter"
+    @dragleave="dragleave"
   >
+    {{ counter }}
     <slot> </slot>
   </div>
 </template>
@@ -13,19 +14,27 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
+  data() {
+    return {
+      counter: 0,
+    };
+  },
   methods: {
     drop(event: DragEvent) {
+      this.counter = 0;
       this.$emit("drop", event);
     },
     dragenter(event: DragEvent) {
-      if (this.$el === event.target) {
+      if (this.counter === 0) {
         this.$emit("dragenter", event);
       }
+      this.counter++;
     },
     dragleave(event: DragEvent) {
-      //内側の要素に行くときもdragleaveが起きてしまう
-      //event.targetはthis.$elだし..
-      this.$emit("dragleave", event);
+      this.counter--;
+      if (this.counter === 0) {
+        this.$emit("dragleave", event);
+      }
     },
   },
 });
