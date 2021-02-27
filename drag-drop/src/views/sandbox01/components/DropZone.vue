@@ -2,7 +2,8 @@
   <div
     class="drop-zone"
     @dragover.prevent
-    @drop.capture="drop"
+    @drop.capture="resetCounter"
+    @drop="emitDrop"
     @dragenter="dragenter"
     @dragleave="dragleave"
   >
@@ -20,10 +21,14 @@ export default Vue.extend({
     };
   },
   methods: {
-    drop(event: DragEvent) {
+    resetCounter(){
+      //カウンター消すのはキャプチャーでする
       this.counter = 0;
+    },
+    emitDrop(event: DragEvent){
       this.$emit("drop", event);
     },
+    //------------------------------
     dragenter(event: DragEvent) {
       if (this.counter === 0) {
         this.$emit("dragenter", event);

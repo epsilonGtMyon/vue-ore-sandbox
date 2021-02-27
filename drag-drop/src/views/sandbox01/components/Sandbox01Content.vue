@@ -6,16 +6,18 @@
     @dragenter="dragenter"
     @dragleave="dragleave"
   >
-    {{dragging}}
     <div v-for="(r, index) in records" :key="index">
       <div>{{ r.itemType }}: {{ r.text }}</div>
     </div>
+
+    <sandbox-01-inner-content/>
   </drop-zone>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import DropZone from "./DropZone.vue";
+import Sandbox01InnerContent from "./Sandbox01InnerContent.vue";
 
 function extractData<T>(event: DragEvent) {
   try {
@@ -41,6 +43,7 @@ export default Vue.extend({
   name: "Sandbox01Content",
   components: {
     DropZone,
+    Sandbox01InnerContent,
   },
   data(): DataType {
     return {
@@ -50,17 +53,19 @@ export default Vue.extend({
   },
   methods: {
     drop(event: DragEvent) {
+      console.log("content:drop");
       this.dragging = false;
-      event.preventDefault();
       const data = extractData<RecordType>(event);
       if (data) {
         this.records.push(data);
       }
     },
     dragenter() {
+      console.log("content:dragenter");
       this.dragging = true;
     },
     dragleave() {
+      console.log("content:dragleave");
       this.dragging = false;
     },
   },
