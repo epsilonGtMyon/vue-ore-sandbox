@@ -5,12 +5,14 @@
     @drop="drop"
     @dragenter="dragenter"
     @dragleave="dragleave"
+    v-slot="{ dragging }"
   >
+    {{ dragging }}
     <div v-for="(r, index) in records" :key="index">
       <div>{{ r.itemType }}: {{ r.text }}</div>
     </div>
 
-    <sandbox-01-inner-content/>
+    <sandbox-01-inner-content />
   </drop-zone>
 </template>
 
